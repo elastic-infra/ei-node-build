@@ -1,0 +1,32 @@
+name: Generate Definitions
+on:
+  schedule: [{ cron:  '0 0 * * *' }] # every day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+    - run: npm ci
+    - run: npm run scrape-definitions
+    - run: npm run lint:lts -- --fix
+      continue-on-error: true
+    - run: npm run commit-definitions
+    - id: log
+      run: |
+        msg=$(git log --format='- %s' --reverse ${{github.sha}}..)
+        echo "::set-output name=message::${msg//$'\n'/'%0A'}"
+    - uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.run_id }}-${{ github.run_attempt }}
+        title: 'Scraped latest definitions'
+        body: ${{ steps.log.outputs.message }}

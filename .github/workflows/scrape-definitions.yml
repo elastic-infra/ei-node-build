@@ -23,7 +23,7 @@ jobs:
     - id: log
       run: |
         msg=$(git log --format='- %s' --reverse ${{github.sha}}..)
-        echo "::set-output name=message::${msg//$'\n'/'%0A'}"
+        echo "message=${msg//$'\n'/'%0A'}" >> $GITHUB_OUTPUT
     - uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

@@ -27,6 +27,6 @@ jobs:
     - uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.run_id }}-${{ github.run_attempt }}
+        branch: latest-scraped-definitions
         title: 'Scraped latest definitions'
         body: ${{ steps.log.outputs.message }}

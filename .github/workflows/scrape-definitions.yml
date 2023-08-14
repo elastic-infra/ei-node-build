@@ -22,8 +22,11 @@ jobs:
     - run: npm run commit-definitions
     - id: log
       run: |
-        msg=$(git log --format='- %s' --reverse ${{github.sha}}..)
-        echo "message=${msg//$'\n'/'%0A'}" >> $GITHUB_OUTPUT
+        {
+          echo 'message<<EOF'
+          git log --format='- %s' --reverse ${{github.sha}}..
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
     - uses: peter-evans/create-pull-request@v5
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

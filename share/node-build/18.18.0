@@ -1,0 +1,7 @@
+echo "This package only contains compiled binaries."
+echo "If no binary matches your platform, source compilation will not be attempted."
+
+binary linux-arm64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.18.0/node-v18.18.0-linux-arm64.tar.gz#c97a0c4c27b5a09639358259320a84affb4590e219af88c7e1bce822f964264a"
+binary linux-x64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.18.0/node-v18.18.0-linux-x64.tar.gz#a40a0cf8b47c7bcdab6b644d4a1dac223416818c7478bb1b78e6fa2d09bc1359"
+
+install_package "v18.18.0" "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.18.0/undefined.tar.gz#"

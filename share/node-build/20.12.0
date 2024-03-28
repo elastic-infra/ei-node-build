@@ -1,0 +1,7 @@
+echo "This package only contains compiled binaries."
+echo "If no binary matches your platform, source compilation will not be attempted."
+
+binary linux-arm64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v20.12.0/node-v20.12.0-linux-arm64.tar.gz#1809fef00ee004e7ad3aaeef24b03da51c4a8204eab16621fc4587ebbd9e762c"
+binary linux-x64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v20.12.0/node-v20.12.0-linux-x64.tar.gz#91192160ff06667cc7ee0ac0f6eb003ad00d6467cb91afa3c28819ddc0d10cb0"
+
+install_package "v20.12.0" "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v20.12.0/undefined.tar.gz#"

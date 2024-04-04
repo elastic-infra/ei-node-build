@@ -1,0 +1,12 @@
+before_install_package() {
+  build_package_warn_lts_maintenance "$1"
+}
+
+
+echo "This package only contains compiled binaries."
+echo "If no binary matches your platform, source compilation will not be attempted."
+
+binary linux-arm64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.20.1/node-v18.20.1-linux-arm64.tar.gz#ad17f244999f69865b697dcbd070a4bc8e8b1f07785b0af8466a997a17981a68"
+binary linux-x64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.20.1/node-v18.20.1-linux-x64.tar.gz#e49409bed4ee09b586950e2764a7fc57e7edb332dec5abe076b02a55e4ad9202"
+
+install_package "v18.20.1" "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v18.20.1/undefined.tar.gz#"

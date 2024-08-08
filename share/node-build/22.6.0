@@ -1,0 +1,7 @@
+echo "This package only contains compiled binaries."
+echo "If no binary matches your platform, source compilation will not be attempted."
+
+binary linux-arm64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.6.0/node-v22.6.0-linux-arm64.tar.gz#d71a0aa9aca7ea32c3847c8fa7ea42042c6f1186e9e9979bb56ac5f2ad86215c"
+binary linux-x64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.6.0/node-v22.6.0-linux-x64.tar.gz#fcc8bb1d6ac6be0e8606c75602d6735854617fcd1fb1e5af5ef279e3704f0ba1"
+
+install_package "v22.6.0" "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.6.0/undefined.tar.gz#"

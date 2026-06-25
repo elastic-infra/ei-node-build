@@ -1,0 +1,12 @@
+before_install_package() {
+  build_package_warn_lts_maintenance "$1"
+}
+
+
+echo "This package only contains compiled binaries."
+echo "If no binary matches your platform, source compilation will not be attempted."
+
+binary linux-arm64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.23.1/node-v22.23.1-linux-arm64.tar.gz#54f0f85d6ae996647a6530f5e31f6e5aa1a99b39cd05ca1fd44d19adc0af3dea"
+binary linux-x64 "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.23.1/node-v22.23.1-linux-x64.tar.gz#4af6a7860b7a3e1737824ec014dbd27de6ebeb2d424e25c9a209b5c5e92a0717"
+
+install_package "v22.23.1" "https://ei-nodejs.s3.ap-northeast-1.amazonaws.com/v22.23.1/undefined.tar.gz#"
